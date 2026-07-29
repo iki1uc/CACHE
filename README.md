@@ -1,29 +1,43 @@
-# CACHE · MISS/FAIL/RDY · NC-Fehlerstation
+# CACHE — Axiom‑2 · NC‑Fehlerstation
 
-CACHE ist die Fehler- und Erfolgsstation des iki1uc-Systems.
-Sie bewertet Eingänge, erzeugt MISS/FAIL/RDY und konvertiert Werte in NC-Modi.
+CACHE ist die zweite Hardware‑Station im Axiom‑System:
 
-──────────────────────────────────────────────
-## Achsen
+∞ = GPU  
+1 = RAM  
+2 = CACHE  
+4 = X4  
+5 = CHDSK  
+12 = ROM  
 
-- MISS – verfehlt
-- FAIL – kaputt
-- RDY – bereit
-- SCORE – Bewertung
+CACHE ist die NC‑Fehlerstation und bewertet Eingaben nach:
 
-──────────────────────────────────────────────
+- MISS
+- FAIL
+- RDY
+
+## Module
+
+CACHE besteht aus fünf funktionalen Modulen:
+
+- CACHE.core.js   → MISS/FAIL/RDY + SCORE + MODE
+- CACHE.pipe.js   → IN / XI / END Weiterleitung
+- CACHE.score.js  → best() / offer()
+- cache.mind.js   → Meta‑Ebene
+- CACHE.result.json → aktueller Status
+
+## Geometrie
+
+CACHE nutzt eine 81‑Orbit‑Geometrie zur Visualisierung der Fehlerzustände.
+
 ## Modi
 
-- 6e → 6
-- 12e → 6e
-- RAW → 6d
+CACHE unterstützt vier Modi:
 
-──────────────────────────────────────────────
-## Dateien
+- RAW
+- 6e
+- 6d
+- 12e
 
-- CACHE.core.js – Hauptengine
-- CACHE.pipe.js – Pipeline
-- CACHE.score.js – Score-Achse
-- cache.mind.js – Mind-Achse
-- id.html – ID-Stempel
-- index.html – Hauptgeometrie
+## Pipeline
+
+CACHE → X4 → CHDSK → ROM
