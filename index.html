@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>CACHE · MISS/FAIL/RDY</title>
+<title>CACHE · Axiom‑2 · MISS/FAIL/RDY</title>
 
 <style>
 body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
@@ -15,7 +15,7 @@ h1 { color:#f00; text-align:center; }
     border: 3px solid #f00;
     border-radius: 50%;
     position: relative;
-    animation: spin 10s linear infinite;
+    animation: spin 12s linear infinite;
 }
 
 .dot {
@@ -30,6 +30,7 @@ pre {
     background:#111;
     padding:20px;
     border-left:3px solid #f00;
+    margin-top:30px;
 }
 
 @keyframes spin {
@@ -42,17 +43,19 @@ pre {
 <script src="CACHE.core.js"></script>
 <script src="CACHE.pipe.js"></script>
 <script src="CACHE.score.js"></script>
+<script src="CACHE.core.js"></script>
 
 </head>
 
 <body>
 
-<h1>CACHE · MISS/FAIL/RDY</h1>
+<h1>CACHE · Axiom‑2 · MISS/FAIL/RDY</h1>
 
 <div id="geo"></div>
 <pre id="status">Lade CACHE…</pre>
 
 <script>
+// Orbit erzeugen
 const geo = document.getElementById("geo");
 const count = 81;
 const radius = 160;
@@ -71,6 +74,7 @@ for(let i=0; i<count; i++){
     geo.appendChild(dot);
 }
 
+// CACHE ausführen
 CACHE.enter(77);
 CACHE.setMode("6e");
 const result = CACHE.compute();
@@ -82,4 +86,3 @@ document.getElementById("status").innerText =
 
 </body>
 </html>
-1
